@@ -9,7 +9,7 @@ public class BaseTest {
 
 	protected WebDriver driver;
 	
-	@BeforeMethod
+	@BeforeMethod(alwaysRun = true)
 	public void setUp() {
 		System.out.println("Starting browser...");
 		driver = new ChromeDriver();
@@ -17,7 +17,7 @@ public class BaseTest {
 		driver.get("https://opensource-demo.orangehrmlive.com/");
 	}
 	
-	@AfterMethod
+	@AfterMethod(alwaysRun = true)
 	public void tearDown() {
 		System.out.println("Closing browser...");
 		if (driver != null) {

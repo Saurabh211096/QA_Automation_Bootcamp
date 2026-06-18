@@ -14,7 +14,7 @@ import pages.LoginPage;
 
 public class LoginTest extends BaseTest {
 	
-	@Test
+	@Test(priority = 1, groups = {"smoke", "regression"})
 	public void verifyValidLogin() {
 		LoginPage loginPage = new LoginPage(driver);
 		
@@ -30,7 +30,7 @@ public class LoginTest extends BaseTest {
 				+ " to Dashboard.");
 	}
 	
-	@Test
+	@Test(priority = 2, groups = {"regression"})
 	public void verifyInvalidLogin() {
 		LoginPage loginpage = new LoginPage(driver);
 		

@@ -26,3 +26,8 @@
 *   **TestNG:** Replaced Java `main()` method with `@Test` annotations. TestNG allows multiple independent test runs and tracks Pass/Fail metrics.
 *   **Annotations:** Used `@BeforeMethod` (setup) and `@AfterMethod` (teardown) to guarantee a clean browser state (fresh login) for every single test.
 *   **Assertions:** Used `Assert.assertTrue()` and `Assert.assertFalse()`. Unlike `System.out.println`, assertions physically pass or fail the test in the reporting pipeline. TestNG error messages are only printed if the assertion fails.
+
+## Day 6: TestNG Advanced & Parallel Execution
+*   **Groups & XML Routing:** Configured `testng.xml` to include/exclude specific `<groups>` and execute specific `<classes>` or entire `<packages>`. In TestNG, `<exclude>` always overrides `<include>`.
+*   **BaseTest Configuration:** Used `@BeforeMethod(alwaysRun = true)` to guarantee WebDriver setup methods execute regardless of XML group filters.
+*   **Parallel Execution:** Utilized `parallel="classes"` and `thread-count="2"` at the `<suite>` level to execute multiple test classes simultaneously across different browser instances, drastically reducing total suite execution time.

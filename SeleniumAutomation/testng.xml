@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<!-- SYNTAX: The master suite definition -->
+<suite name="Enterprise Automation Suite">
+
+	<!-- SYNTAX: A logical grouping of tests -->
+	<test name="Smoke Tests">
+		<!-- SYNTAX & PURPOSE: Tells TestNG to ONLY execute methods 
+		tagged with the 'smoke' group -->
+		<groups>
+			<run>
+				<exclude name="smoke"/>
+			</run>
+		</groups>
+		
+		<classes>
+			<class name="tests.LoginTest"></class>
+		</classes>
+	</test>
+
+</suite>
