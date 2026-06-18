@@ -11,6 +11,7 @@
 *   **CSS vs XPath:** CSS is processed natively by the browser (faster). XPath is slower but allows navigating up the DOM tree and searching by visible text.
 *   **XPath Axes (Traversing):** Mastered locating stable elements (like a label) and using `parent::`, `ancestor::`, `following-sibling::` to locate dynamic inputs.
 
-## Day 3: Synchronization (Waits)
+## Day 3: Synchronization (Waits) & Utilities
 *   **Implicit Wait:** Global timeout. Avoid in modern frameworks due to unpredictable execution delays.
-*   **Explicit Wait:** `WebDriverWait` combined with `ExpectedConditions`. Pauses execution until a *specific condition* (like `visibilityOfElementLocated` or `elementToBeClickable`) is met for a specific element. Safe and precise.
+*   **Explicit Wait:** `WebDriverWait` + `ExpectedConditions`. Pauses execution until a *specific condition* is met for a specific element. Safe and precise.
+*   **Utility Classes:** Centralized wait logic into a `WaitUtils` class. Used a private constructor to prevent instantiation, forcing users to call the `static` methods directly, saving memory and adhering to enterprise design standards.
