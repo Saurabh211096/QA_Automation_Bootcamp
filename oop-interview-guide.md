@@ -2,12 +2,12 @@
 
 ## 1. Encapsulation (Data Hiding)
 **Definition:** Restricting direct access to variables and using public getters/setters or methods to interact with them safely.
-*   **Application 1 (Page Object Model):** We declare WebElements as `private` in our Page classes so test scripts cannot manipulate them directly or incorrectly. We expose them only through `public` methods (e.g., `enterUsername()`).
+*   **Application 1 (Page Object Model):** We heavily utilize Encapsulation in our Page classes. We declare WebElements as `private` (e.g., `private By usernameInput`). Test scripts cannot manipulate them directly, bypassing synchronization. We expose them only through `public` methods (e.g., `enterUsername()`), which safely implement `WaitUtils`. This strictly separates page behavior from test script implementation.
 *   **Application 2 (Utility Classes):** Classes like `ExpectedConditions` encapsulate complex polling loop mechanisms inside `static` methods. We just call `visibilityOf()`, abstracting the loop logic.
 
 ## 2. Inheritance (Reusability)
 **Definition:** A child class inherits attributes and methods from a parent class.
-*   **Application 1 (Base Tests & Pages):** We create a `BaseTest` or `BasePage` class containing common WebDriver initialization, teardown, and configuration code. Specific test classes (like `LoginTest`) `extend` this base class, eliminating code duplication.
+*   **Application 1 (BaseTest Architecture):** We heavily utilize Inheritance in our test execution layer. We created a parent class `BaseTest` that handles WebDriver initialization via `@BeforeMethod` and teardown via `@AfterMethod`. Every specific test class (like `LoginTest`) uses `extends BaseTest`. This completely eliminates WebDriver setup duplication and ensures every test inherits a standardized execution state.
 
 ## 3. Polymorphism (Flexibility)
 **Definition:** The ability of a method to do different things based on the object acting upon it, or the parameters passed (Overloading vs Overriding).
