@@ -31,3 +31,9 @@
 *   **Groups & XML Routing:** Configured `testng.xml` to include/exclude specific `<groups>` and execute specific `<classes>` or entire `<packages>`. In TestNG, `<exclude>` always overrides `<include>`.
 *   **BaseTest Configuration:** Used `@BeforeMethod(alwaysRun = true)` to guarantee WebDriver setup methods execute regardless of XML group filters.
 *   **Parallel Execution:** Utilized `parallel="classes"` and `thread-count="2"` at the `<suite>` level to execute multiple test classes simultaneously across different browser instances, drastically reducing total suite execution time.
+
+## Day 7: Cross-Browser & Multi-Environment Configuration
+*   **Externalization (`.properties`):** Removed hardcoded test data and configuration settings from Java classes to adhere to framework design standards.
+*   **ConfigReader Utility:** Implemented a utility class with a `static` block and `FileInputStream` to load properties into memory exactly once per test run, minimizing file system operations.
+*   **Dynamic Execution:** Used `switch` statements in `BaseTest` to instantiate `ChromeDriver`, `FirefoxDriver`, or `EdgeDriver` dynamically based on configuration values.
+*   **CI/CD Simulation:** Used `System.getProperty("env")` to read JVM command-line arguments (e.g., `-Denv=dev`). This allows CI/CD tools (Jenkins/GitHub Actions) to route test traffic to specific environments (Dev/Staging) without altering the source code.

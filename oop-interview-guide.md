@@ -12,6 +12,7 @@
 ## 3. Polymorphism (Flexibility)
 **Definition:** The ability of a method to do different things based on the object acting upon it, or the parameters passed (Overloading vs Overriding).
 *   **Application 1 (Compile-Time / Overloading):** We use Method Overloading in Utility classes. For example, a `WaitHelper` class might have `click(WebElement)` and `click(WebElement, int timeout)`. The compiler knows which one to run based on the parameters provided.
+*   **Application 2 (Cross-Browser Execution / Run-Time):** We use the `WebDriver` interface to achieve Polymorphism. In our `BaseTest`, `driver` is declared as the interface type. Based on our `config.properties` file, it dynamically morphs into a `ChromeDriver`, `FirefoxDriver`, or `EdgeDriver` at runtime. The rest of the test script (`driver.get()`, `findElement()`) remains completely oblivious to the specific browser implementation.
 
 ## 4. Abstraction (Implementation Hiding)
 **Definition:** Hiding the complex internal working mechanisms and showing only the essential features to the user (using Interfaces or Abstract classes).
